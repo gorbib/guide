@@ -1,0 +1,8 @@
+{
+    "name": "gorbib/guide",
+    "type": "project",
+    "require": {
+        "mikecao/flight": "^1.3",
+        "cloudinary/cloudinary_php": "^1.6"
+    }
+}
