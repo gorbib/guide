@@ -18,7 +18,7 @@ Flight::register('db', 'PDO', array(
 ));
 
 // Some stuf for all pages
-Flight::route('*', function () {
+Flight::route('*', function () use ($config) {
 
     $sth = Flight::db()->prepare("
         SELECT *,
@@ -33,7 +33,7 @@ Flight::route('*', function () {
 
     Flight::view()->set('categories', $categories);
 
-    Flight::view()->set('admin', $config->admin);
+    Flight::view()->set('admin', $config['admin']);
 
     return true; // pass to next route
 });
@@ -124,8 +124,8 @@ Flight::route('/@alias:[A-z0-9-]+', function ($alias) {
 
 
 // All admin pages
-Flight::route('/\+/*', function () {
-    if ($config->admin) {
+Flight::route('/\+/*', function () use ($config) {
+    if ($config['admin']) {
         return true;
     } else {
         Flight::redirect('/');
