@@ -58,7 +58,7 @@
             </div>
             <div class="footer__main">
                 <p class="copyright">Собрали фотографии и написали текст библиотекари <a href="http://gorbib.org.ru" target="_blank">качканарской библиотеки им. Селянина</a> к&nbsp;60-летию города</p>
-                <div id="openstat1" class=" footer__stat-block"></div>
+                <div id="openstat4031444" class=" footer__stat-block"></div>
                 <div class="likely likely-light" data-via="gorbib">
                     <div class="vkontakte">Расскажите в ВК</div>
                     <div class="facebook">Фейсбуке</div>
@@ -84,7 +84,7 @@
 
     <!--Openstat-->
     <script type="text/javascript">
-    var openstat = { counter: 1, image: 90, color: "828282", next: openstat };
+    var openstat = { counter: 4031444, image: 90, color: "828282", next: openstat };
     (function(d, t, p) {
     var j = d.createElement(t); j.async = true; j.type = "text/javascript";
     j.src = ("https:" == p ? "https:" : "http:") + "//openstat.net/cnt.js";
