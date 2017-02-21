@@ -6,7 +6,7 @@ $config = include('config.php');
 
 // Database connection
 Flight::register('db', 'PDO', array(
-    'mysql:host=localhost;dbname='.$config['db']['name'],
+    'mysql:host='.$config['db']['host'].';dbname='.$config['db']['name'],
     $config['db']['user'],
     $config['db']['password'],
     array(
