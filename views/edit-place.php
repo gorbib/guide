@@ -3,7 +3,7 @@
         <label>Название</label>
         <input type="text" name="title" placeholder="Название" class="edit-place-form__field" value="<?=$place['title']?>" required>
     </p>
-    <p style="font-size: 16px;color:#555">Адрес: <?=$_SERVER['SERVER_NAME']?>/<input type="text" name="alias" class="edit-place-form__field edit-place-form__field_alias" value="<?=$place['alias']?>" placeholder="По английски, без пробелов" required></p>
+    <p style="font-size: 16px;color:#555;display:flex">Адрес страницы: /<input type="text" name="alias" class="edit-place-form__field edit-place-form__field_alias" value="<?=$place['alias']?>" placeholder="По английски, без пробелов" style="flex:1" required></p>
     <p>
         <label for="category">Раздел</label>
         <select name="category">
