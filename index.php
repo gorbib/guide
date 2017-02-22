@@ -33,6 +33,9 @@ Flight::route('*', function () use ($config) {
 
     Flight::view()->set('categories', $categories);
 
+    Flight::view()->set('description', $config['description']);
+
+
     Flight::view()->set('admin', $config['admin']);
 
     return true; // pass to next route
@@ -115,7 +118,10 @@ Flight::route('/@alias:[A-z0-9-]+', function ($alias) {
                 'places' => $places,
                 'category' => $category
             ], 'content');
-            Flight::render('layout', ['title' => $category['name'].' в Качканаре']);
+
+            Flight::render('layout', [
+                'title' => $category['name'].' в Качканаре'
+            ]);
         } else {
             Flight::notFound();
         }

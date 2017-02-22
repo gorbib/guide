@@ -6,7 +6,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="Интересные места и достопримечательности города Качканар от библиотеки им. Ф. Т. Селянина к 60-летию города">
+    <meta name="description" content="<?=$description?>">
     <meta name="keywords" content="интересные места Качканара, достопримечательности Качканара, Качканар">
     <meta property="og:image" content="<?=$image?>">
     <meta property="og:description" content="<?=$description?>">
