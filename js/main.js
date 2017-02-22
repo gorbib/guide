@@ -61,10 +61,12 @@ ymaps.ready(function(){
     });
 });
 
-$('.map-zoomin').on('click', function(){
+$('.map-zoomin').on('click', function(e){
+    e.preventDefault();
     kachkanarMap.setZoom(kachkanarMap.getZoom()+1, {duration: 300, checkZoomRange: true});
 });
-$('.map-zoomout').on('click', function(){
+$('.map-zoomout').on('click', function(e){
+    e.preventDefault();
     if(kachkanarMap.getZoom() <= 13 ) return;
     kachkanarMap.setZoom(kachkanarMap.getZoom()-1, {duration: 300, checkZoomRange: true});
 });
