@@ -211,7 +211,7 @@ Flight::route('POST /\+(/@id:[0-9]+)', function ($id) {
     Flight::redirect('/'.$_POST['alias']);
 });
 
-Flight::route('POST /\+/upload', function () {
+Flight::route('POST /\+/upload', function () use ($config) {
     \Cloudinary::config(array(
         "cloud_name" => $config['cloudinary']['cloud'],
         "api_key" => $config['cloudinary']['key'],
