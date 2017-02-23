@@ -97,17 +97,6 @@
     </script>
     <!--/Openstat-->
 
-    <script>
-    (function(){
-        var uri = 'http://rating.kachkanar.ru/img.php?href='+encodeURIComponent(location.href)+
-        '&hostname='+encodeURIComponent(location.hostname)+
-        '&referer='+encodeURIComponent(document.referrer)+
-        '&rand='+Math.random();
-        document.createElement("img").src = uri;
-    })();
-    </script>
-
-
     <!-- For old browsers -->
     <script src="https://yastatic.net/browser-updater/v1/script.js"></script>
     <script>
