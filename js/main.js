@@ -37,26 +37,22 @@ ymaps.ready(function(){
     $.ajax('/json', {
         dataType: "json",
         success: function(places) {
+            var placemarks = [];
             places.forEach(function(place, i) {
                 var placemark = new ymaps.Placemark( [place.long, place.lat], {
-                    balloonContent: '<a href="/'+place.alias+'"><strong style="font-size:16px;">'+place.title+'</strong><br><img src="'+place.image+'"></a>',
+                    balloonContent: '<a href="/'+place.alias+'" style="text-decoration:none;color:#333"><strong style="font-size:16px;">'+place.title+'</strong><br><img src="'+place.image+'"></a>',
+                    hintContent: place.title
                 }, {
                     preset: 'islands#redCircleDotIcon'
                 });
 
-                // placemark.events.add('click', function(e) {
-                //     // instanciate new modal
-                //     var modal = new tingle.modal();
-
-                //     // set content
-                //     modal.setContent('<h1>'+place.title+'</h1>'+place.text);
-
-                //     // open modal
-                //     modal.open();
-                // });
-
-                kachkanarMap.geoObjects.add(placemark);
+                placemarks.push(placemark);
             });
+            var clusterer = new ymaps.Clusterer({
+                preset: 'islands#redClusterIcons'
+            });
+            clusterer.add(placemarks);
+            kachkanarMap.geoObjects.add(clusterer);
         }
     });
 });
