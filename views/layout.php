@@ -73,7 +73,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.6/handlebars.min.js"></script>
     <script src="/js/main.js"></script>
 
-    <?=$js?>
+    <?php
+    if (!empty($js)) {
+        echo $js;
+    }
+    ?>
 
     <script src="https://vk.com/js/api/openapi.js?139"></script>
     <script type="text/javascript">

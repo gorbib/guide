@@ -175,10 +175,10 @@ Flight::route('GET /\+(/@id:[0-9]+)', function ($id) {
 
 
 // Save new or edited place
-Flight::route('POST /\+(/@id:[0-9]+)', function ($id) {
+Flight::route('POST /\+(/@id:[0-9]+)', function ($placeId) {
 
     // If we have an ID, then update place information
-    if (isset($id)) {
+    if (isset($placeId)) {
         $sth = Flight::db()->prepare("
             UPDATE `places`
             SET
@@ -191,7 +191,7 @@ Flight::route('POST /\+(/@id:[0-9]+)', function ($id) {
             WHERE `id` = :id
         ");
 
-        $sth->bindValue(':id', $id);
+        $sth->bindValue(':id', $placeId);
     } else {
         // Else create a new place
         $sth = Flight::db()->prepare("
@@ -208,16 +208,66 @@ Flight::route('POST /\+(/@id:[0-9]+)', function ($id) {
     $sth->bindValue(':category', $_POST['category']);
     $sth->execute();
 
+    // Get id of added place
+    if (empty($placeId)) {
+        $placeId = Flight::db()->lastInsertId();
+    }
+
+    // Update images
+    $images = json_decode($_POST['images']);
+    if (is_array($images)) {
+        // Remove all images from place
+        // (Not actualy removing, just set place to not existing — 0)
+        // Why? Because on update this image need to be exist
+        $sth = Flight::db()->prepare("UPDATE `images` SET `place` = 0 where `place`= :place_id");
+        $sth->bindValue(':place_id', $placeId);
+        $sth->execute();
+
+        // Set place to current for all images
+        foreach ($images as $image) {
+            $sth = Flight::db()->prepare("
+                UPDATE `images` SET
+                    `place` = :place_id,
+                    `caption` = :caption
+                WHERE `id` = :image_id
+            ");
+            $sth->bindValue(':place_id', $placeId);
+            $sth->bindValue(':image_id', $image->id);
+            $sth->bindValue(':caption', htmlspecialchars($image->caption));
+            $sth->execute();
+        }
+    }
+
+    // Open place page
     Flight::redirect('/'.$_POST['alias']);
 });
 
+/**
+ * Uploading route
+ *
+ * Store image files, sended with $_FILES['image']
+ *
+ * Returns json with uploaded image information
+ */
 Flight::route('POST /\+/upload', function () use ($config) {
+
+    /**
+     * Initialization for Cloudinary
+     *
+     * http://cloudinary.com/
+     *
+     * Cloudinary — web service for store images, with extra functions, like
+     * croping or face detection
+     *
+     * $config['cloudinary'] options need to be set in /config.php file
+     */
     \Cloudinary::config(array(
         "cloud_name" => $config['cloudinary']['cloud'],
         "api_key" => $config['cloudinary']['key'],
         "api_secret" => $config['cloudinary']['api-secret']
     ));
 
+    // Upload file to cloudinary server
     $upload = \Cloudinary\Uploader::upload(
         $_FILES['image']['tmp_name'],
         array(
@@ -227,36 +277,17 @@ Flight::route('POST /\+/upload', function () use ($config) {
         )
     );
 
-    $sth = Flight::db()->prepare("
-        INSERT INTO `images` (`id`, `place`, `url`, `caption`)
-        VALUES (NULL, :place, :url, '')
-    ");
-    $sth->bindValue(':place', intval($_POST['place']));
+    // Insert url of uploaded image in db
+    $sth = Flight::db()->prepare("INSERT INTO `images` (`place`, `url`) VALUES (0, :url)");
     $sth->bindValue(':url', $upload['url']);
     $sth->execute();
+
+    // Add new image id to response
+    $upload['id'] = Flight::db()->lastInsertId();
 
     Flight::json($upload);
 });
 
-Flight::route('POST /\+/remove-image', function () {
-    $sth = Flight::db()->prepare("
-        DELETE FROM `images` WHERE `id` = :id
-    ");
-    $sth->bindValue(':id', intval($_POST['id']));
-    $sth->execute();
-
-    Flight::json(['status' => 'ok']);
-});
-Flight::route('POST /\+/edit-image', function () {
-    $sth = Flight::db()->prepare("
-        UPDATE `images` SET `caption` = :caption WHERE `id` = :id
-    ");
-    $sth->bindValue(':id', intval($_POST['id']));
-    $sth->bindValue(':caption', htmlspecialchars($_POST['caption']));
-    $sth->execute();
-
-    Flight::json(['status' => 'ok']);
-});
 
 // 404
 Flight::map('notFound', function () {

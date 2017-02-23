@@ -273,7 +273,7 @@ body {
 	font-size: 16px;
 }
 
-.edit-place-form__image-preview {
+.image-preview {
 	float: left;
 	position: relative;
 	margin: 10px 10px 0 0;
@@ -314,10 +314,10 @@ body {
 	display: none;
 }
 
-.edit-place-form__image-preview__image {
+.image-preview__image {
 	height: 150px;
 }
-.edit-place-form__image-preview__caption {
+.image-preview__caption {
 	position: absolute;
 	bottom: 0;
 	width:100%;
@@ -326,7 +326,7 @@ body {
 }
 
 
-.edit-place-form__image-preview__remove-button {
+.image-preview__remove-button {
 	opacity: 0;
 	position: absolute;
 	top: -5px;
@@ -342,7 +342,7 @@ body {
 	cursor: pointer;
 }
 
-.edit-place-form__image-preview:hover .edit-place-form__image-preview__remove-button {
+.image-preview:hover .image-preview__remove-button {
 	opacity: 1;
 
 }
