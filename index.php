@@ -2,7 +2,7 @@
 
 require 'vendor/autoload.php';
 
-$config = include('config.php');
+$config = include('config/config.php');
 
 // Database connection
 Flight::register('db', 'PDO', array(
