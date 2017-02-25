@@ -1,23 +1,32 @@
-html {
-	box-sizing: border-box;
-}
 *, *:before, *:after {
 	box-sizing: inherit;
 }
 
-img {
-	max-width: 100%;
+html {
+	box-sizing: border-box;
+}
+
+html, body {
+	overflow-x: hidden
 }
 
 body {
 	display: flex;
+	color: #333;
+	color: rgba(0,0,0,.8);
 	min-height: 100vh;
-	font-family: 'Open Sans', sans-serif;
+	font-family: -apple-system,BlinkMacSystemFont,Roboto,Open Sans,Helvetica Neue,sans-serif;
 	-webkit-font-smoothing: antialiased;
 	flex-direction: row;
 	align-items: stretch;
 }
 
+a {
+	color: inherit;
+}
+img {
+	max-width: 100%;
+}
 
 .clearfix:after {
 	content: "";
