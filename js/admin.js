@@ -67,6 +67,13 @@ $('.image-previews').on('keyup', '.image-preview__caption', function(e) {
     imagePreviews.update();
 });
 
+var sort = Sortable.create(document.querySelector('.image-previews'), {
+    animation: 150,
+    onUpdate: function (evt){
+        imagePreviews.update();
+    }
+});
+
 
 // Uploader
 (function(){

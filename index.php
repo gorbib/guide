@@ -62,7 +62,7 @@ Flight::route('/json', function () {
         title,
         description,
         text,
-        (select `url` from `images` where `place` = `places`.`id` limit 1) as 'image'
+        (select `url` from `images` where `place` = `places`.`id` order by `order` asc limit 1) as 'image'
     FROM `places`");
 
     $sth->execute();
@@ -84,7 +84,7 @@ Flight::route('/@alias:[A-z0-9-]+', function ($alias) {
     $place = $sth->fetch();
 
     if ($place) {
-        $sth = Flight::db()->prepare("SELECT * from `images` where `place` = :place");
+        $sth = Flight::db()->prepare("SELECT * from `images` where `place` = :place order by `order` asc");
         $sth->bindValue(':place', $place['id']);
         $sth->execute();
         $place['images'] = $sth->fetchAll();
@@ -106,7 +106,7 @@ Flight::route('/@alias:[A-z0-9-]+', function ($alias) {
         if ($category) {
             $sth = Flight::db()->prepare("
                 SELECT *,
-                (select `url` from `images` where `place` = `places`.`id` limit 1) as 'image'
+                (select `url` from `images` where `place` = `places`.`id` order by `order` asc limit 1) as 'image'
                 from `places`
                 where `category` = :id
             ");
@@ -156,7 +156,7 @@ Flight::route('GET /\+(/@id:[0-9]+)', function ($id) {
         $place = $sth->fetch();
 
         if ($place) {
-            $sth = Flight::db()->prepare("SELECT * from `images` where `place` = :place");
+            $sth = Flight::db()->prepare("SELECT * from `images` where `place` = :place order by `order` asc ");
             $sth->bindValue(':place', $place['id']);
             $sth->execute();
             $place['images'] = $sth->fetchAll();
@@ -224,16 +224,18 @@ Flight::route('POST /\+(/@id:[0-9]+)', function ($placeId) {
         $sth->execute();
 
         // Set place to current for all images
-        foreach ($images as $image) {
+        foreach ($images as $i => $image) {
             $sth = Flight::db()->prepare("
                 UPDATE `images` SET
                     `place` = :place_id,
-                    `caption` = :caption
+                    `caption` = :caption,
+                    `order` = :order
                 WHERE `id` = :image_id
             ");
             $sth->bindValue(':place_id', $placeId);
             $sth->bindValue(':image_id', $image->id);
             $sth->bindValue(':caption', htmlspecialchars($image->caption));
+            $sth->bindValue(':order', $i);
             $sth->execute();
         }
     }
