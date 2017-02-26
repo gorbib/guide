@@ -71,7 +71,6 @@
     </main>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.6/handlebars.min.js"></script>
     <script src="/js/main.js"></script>
 
     <?php
@@ -80,15 +79,16 @@
     }
     ?>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script>
     <script src="https://vk.com/js/api/openapi.js?139"></script>
-    <script type="text/javascript">
+    <script>
     VK.Widgets.Group("vk_groups", {mode: 3, width: "auto"}, 52689769);
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ilyabirman-likely/2.2.1/likely.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script>
+
 
     <!--Openstat-->
-    <script type="text/javascript">
+    <script>
     var openstat = { counter: 4031444, image: 90, color: "828282", next: openstat };
     (function(d, t, p) {
     var j = d.createElement(t); j.async = true; j.type = "text/javascript";

@@ -54,10 +54,11 @@
 </script>
 
 <?php ob_start() ?>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/medium-editor/5.22.2/js/medium-editor.min.js"></script>
 <script type="text/javascript">
 var initialLat = <?=($place['lat']? $place['lat']: 59.484148) ?>;
 var initialLong = <?=($place['long']? $place['long'] : 58.704105) ?>;
 </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/medium-editor/5.22.2/js/medium-editor.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.6/handlebars.min.js"></script>
 <script src="/js/admin.js"></script>
 <?php Flight::view()->set('js', ob_get_clean()) ?>
