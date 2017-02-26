@@ -27,6 +27,7 @@ CREATE TABLE `images` (
   `place` int(10) NOT NULL,
   `url` varchar(255) NOT NULL DEFAULT '',
   `caption` varchar(255) DEFAULT NULL,
+  `order` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
