@@ -9,7 +9,7 @@
 ### [Скачайте архив](https://github.com/gorbib/guide/archive/master.zip) или клонируйте репозиторий через git
 `git clone https://github.com/gorbib/guide.git`
 
-### Установите зависимостей через [composer](http://getcomposer.org/)
+### Установите зависимости через [composer](http://getcomposer.org/)
 `composer install`
 
 ### Настройка
