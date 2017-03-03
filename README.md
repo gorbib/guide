@@ -1,6 +1,6 @@
 <img src="https://xn--80aaafs0abz2a9d.xn--p1ai/images/mountain.svg" width="300">
 # Путеводитель по достопримечательностям Качканара
-Сайт разработан и поддерживается библиотекой им. Селянина. На нём мы публикуем описания, историю и фотографии разных интересных местах города.
+Сайт разработан и поддерживается библиотекой им. Селянина. На нём мы публикуем описания, историю и фотографии разных интересных мест города.
 
 <img src="https://res.cloudinary.com/library/image/upload/v1488273900/guide/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA_%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0_2017-02-28_%D0%B2_14.23.06.png">
 
@@ -9,13 +9,13 @@
 Предлагайте новые функции и изменения.
 
 ## Установка
-### [Скачайте архив](https://github.com/gorbib/guide/archive/master.zip) или клонируйте репозиторий через git
+### 1. [Скачайте архив](https://github.com/gorbib/guide/archive/master.zip) или клонируйте репозиторий через git
 `git clone https://github.com/gorbib/guide.git`
 
-### Установите зависимости через [composer](http://getcomposer.org/)
+### 2. Установите зависимости через [composer](http://getcomposer.org/)
 `composer install`
 
-### Настройка
+### 3. Настройте
 1. Создайте структуру базы данных. Дамп лежит в __config/dump.sql__
 
 2. Измените настройки в файле __config/config.php__
