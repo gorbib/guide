@@ -281,7 +281,7 @@ Flight::route('POST /\+/upload', function () use ($config) {
 
     // Insert url of uploaded image in db
     $sth = Flight::db()->prepare("INSERT INTO `images` (`place`, `url`) VALUES (0, :url)");
-    $sth->bindValue(':url', $upload['url']);
+    $sth->bindValue(':url', $upload['secure_url']);
     $sth->execute();
 
     // Add new image id to response
