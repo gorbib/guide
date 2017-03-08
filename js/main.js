@@ -23,9 +23,12 @@ ymaps.ready(function(){
     if(!$('.map').length) return;
 
     window.kachkanarMap = new ymaps.Map(document.querySelector('.map'), {
-        center: [58.70, 59.48],
-        zoom: 14,
+        center: [58.720, 59.493],
+        zoom: 12,
         controls: ["geolocationControl"]
+    },
+    {
+        restrictMapArea: [[58.581, 59.101], [58.858, 59.884]]
     });
 
     kachkanarMap.behaviors.disable('scrollZoom');
@@ -63,7 +66,7 @@ $('.map-zoomin').on('click', function(e){
 });
 $('.map-zoomout').on('click', function(e){
     e.preventDefault();
-    if(kachkanarMap.getZoom() <= 13 ) return;
+    if(kachkanarMap.getZoom() <= 12 ) return;
     kachkanarMap.setZoom(kachkanarMap.getZoom()-1, {duration: 300, checkZoomRange: true});
 });
 
