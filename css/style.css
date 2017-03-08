@@ -44,6 +44,8 @@ img {
 	flex-grow: 1;
 	flex-shrink: 1;
 	position: relative;
+	/* dont remove «overflow», because fotorama have some troubles without it */
+	overflow: auto;
 }
 
 .content {
