@@ -17,7 +17,7 @@ Flight::register('db', 'PDO', array(
     )
 ));
 
-// Some stuf for all pages
+// Some stuff for all pages
 Flight::route('*', function () use ($config) {
 
     $sth = Flight::db()->prepare("
@@ -217,7 +217,7 @@ Flight::route('POST /\+(/@id:[0-9]+)', function ($placeId) {
     $images = json_decode($_POST['images']);
     if (is_array($images)) {
         // Remove all images from place
-        // (Not actualy removing, just set place to not existing — 0)
+        // (Not actually removing, just set place to not existing — 0)
         // Why? Because on update this image need to be exist
         $sth = Flight::db()->prepare("UPDATE `images` SET `place` = 0 where `place`= :place_id");
         $sth->bindValue(':place_id', $placeId);
