@@ -8,7 +8,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="<?=$description?>">
     <meta name="keywords" content="интересные места Качканара, достопримечательности Качканара, Качканар">
-    <meta property="og:image" content="<?=$image?>">
+
+    <meta property="og:title" content="<?=$title?>">
+    <meta property="og:type" content="site">
+    <meta property="og:url" content="//<?=$_SERVER[HTTP_HOST] . $_SERVER[REQUEST_URI]?>">
+    <meta property="og:image" content="<?=($image ? $image : '/images/og-index.jpg')?>">
+    <meta property="og:site_name" content="Путеводитель по Качканару">
     <meta property="og:description" content="<?=$description?>">
 
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
