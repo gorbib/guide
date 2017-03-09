@@ -11,6 +11,8 @@
     <meta property="og:image" content="<?=$image?>">
     <meta property="og:description" content="<?=$description?>">
 
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif+Caption&amp;subset=cyrillic">
