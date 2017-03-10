@@ -11,9 +11,17 @@ var editor = new MediumEditor('.edit-place-form__field_text', {
 
 ymaps.ready(function(){
 
+    var coordinates;
+
+    if($.trim($('.edit-place-form__field_coordinates').val())) {
+        var coordinates = $('.edit-place-form__field_coordinates').val().split(' ');
+    } else {
+        coordinates = [58.704105, 59.484148]; /* Default coordinates */
+        updateFormCoordinates(coordinates);
+    }
 
     var mapPreview = new ymaps.Map($('.map-preview')[0], {
-        center: [initialLong, initialLat],
+        center: coordinates,
         zoom: 14,
         controls: ["zoomControl", "typeSelector"]
     }, {
@@ -26,16 +34,22 @@ ymaps.ready(function(){
         mapPreview.behaviors.disable('drag');
     }
 
-    var placemark = new ymaps.Placemark( [initialLong, initialLat], null, {
+    var placemark = new ymaps.Placemark(coordinates, null, {
         preset: 'islands#redCircleDotIcon',
         draggable: true
     });
     mapPreview.geoObjects.add(placemark);
 
     placemark.events.add('drag', function (e) {
-        var coordinates = placemark.geometry.getCoordinates();
-        $('.edit-place-form__field_coordinates').val(coordinates[0]+' '+coordinates[1]);
+        updateFormCoordinates(placemark.geometry.getCoordinates());
     });
+
+    function updateFormCoordinates(coordinates){
+        var long = coordinates[0];
+        var lat = coordinates[1];
+
+        $('.edit-place-form__field_coordinates').val(long +' '+ lat);
+    }
 });
 
 
