@@ -153,3 +153,87 @@ var sort = Sortable.create(document.querySelector('.image-previews'), {
         });
     }
 })();
+
+
+/* Auto aliases */
+$('.edit-place-form__field_alias').on('input', function() {
+
+    if ($(this).val()) {
+        $(this).removeClass('auto-alias');
+    } else {
+        $(this).addClass('auto-alias');
+    }
+
+}).trigger('input');
+
+$('.edit-place-form__field_title').on('input', function() {
+
+    if(!$('.edit-place-form__field_alias').hasClass('auto-alias')) return;
+
+    var title = $('.edit-place-form__field_title').val();
+
+    var alias = translit(title);
+
+    $('.edit-place-form__field_alias').val(alias);
+});
+
+
+function translit(str, spaceReplacement) {
+
+    var associations = {
+        1072: "a",
+        1073: "b",
+        1074: "v",
+        1075: "g",
+        1076: "d",
+        1077: "e",
+        1078: "zh",
+        1079: "z",
+        1080: "i",
+        1081: "y",
+        1082: "k",
+        1083: "l",
+        1084: "m",
+        1085: "n",
+        1086: "o",
+        1087: "p",
+        1088: "r",
+        1089: "s",
+        1090: "t",
+        1091: "u",
+        1092: "f",
+        1093: "h",
+        1094: "ts",
+        1095: "ch",
+        1096: "sh",
+        1097: "sh",
+        1099: "y",
+        1101: "e",
+        1102: "yu",
+        1103: "ya",
+        1105: "e",
+        1098: "",
+        1100: ""
+    };
+
+    str = str.toLowerCase();
+    var translit = '',
+        exp = str.split('');
+
+    for (var i in exp) {
+        var code = str.charCodeAt(i),
+            symb = '';
+
+        if (code == 32) {
+            symb = '-';
+        } else if (associations[code]) {
+            symb = associations[code];
+        } else if (code >= 97 && code <= 122) {
+            symb = exp[i];
+        }
+
+        translit += symb;
+    }
+
+    return translit;
+};

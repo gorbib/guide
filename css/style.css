@@ -276,6 +276,10 @@ img {
 	width: 100%;
 }
 
+.edit-place-form__field:invalid {
+	color: red;
+}
+
 .edit-place-form__field_alias {
 	display: inline-block;
 	padding: 0;
