@@ -1,7 +1,4 @@
 var editor = new MediumEditor('.edit-place-form__field_text', {
-    placeholder: {
-        text: 'Сюда нужно написать текст об этом месте'
-    },
     paste: {
         forcePlainText: false,
         cleanPastedHTML: true

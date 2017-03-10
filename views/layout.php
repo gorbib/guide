@@ -41,7 +41,7 @@
                 <?php endforeach;?>
 
                 <?php if ($admin) : ?>
-                <li><a href="/+/">[добавить место]</a></li>
+                <li><a href="/+/" class="sidebar__navigation__button">добавить место</a></li>
                 <?php endif; ?>
             </ul>
             <ul class="sidebar__social">

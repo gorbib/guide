@@ -97,6 +97,13 @@ img {
 	color: #ccc;
 }
 
+.sidebar__navigation__button {
+    border: 1px solid;
+    margin: 20px;
+    padding: 10px;
+    border-radius: 3px;
+}
+
 .sidebar__navigation li sup {
     color: #666;
     font-size: 14px;
