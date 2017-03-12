@@ -251,7 +251,7 @@ Flight::route('POST /\+(/@id:[0-9]+)', function ($placeId) {
 Flight::route('GET /\+/categories', function () {
     $sth = Flight::db()->prepare("SELECT * from `categories` order by `name` asc");
     $sth->execute();
-    Flight::render('edit-categories', ['categories' => $sth->fetchAll()], 'content');
+    Flight::render('edit-categories', ['categoriesList' => $sth->fetchAll()], 'content');
     Flight::render('layout', ['title' => 'Правка категорий']);
 });
 
@@ -259,7 +259,7 @@ Flight::route('GET /\+/categories', function () {
  * Add category
  */
 Flight::route('POST /\+/categories', function () {
-   $sth = Flight::db()->prepare("INSERT INTO `categories` (`name`, `alias`) VALUES (:name, :alias)");
+    $sth = Flight::db()->prepare("INSERT INTO `categories` (`name`, `alias`) VALUES (:name, :alias)");
     $sth->bindValue(':name', htmlspecialchars($_POST['name']));
     $sth->bindValue(':alias', $_POST['alias']);
     $sth->execute();
@@ -271,11 +271,18 @@ Flight::route('POST /\+/categories', function () {
  * Delete category
  */
 Flight::route('DELETE /\+/categories/@id:[0-9]+', function ($id) {
-   $sth = Flight::db()->prepare("delete from `categories` where `id`=:id");
-    $sth->bindValue(':id', $id);
+    $sth = Flight::db()->prepare("SELECT count(*) as 'count' from `places` where `category` = :category");
+    $sth->bindValue(':category', $id);
     $sth->execute();
+    if ($sth->fetch()['count'] > 0) {
+        Flight::json(['success' => false, 'error' => 'Category not empty']);
+    } else {
+        $sth = Flight::db()->prepare("delete from `categories` where `id`=:id");
+        $sth->bindValue(':id', $id);
+        $sth->execute();
 
-    Flight::json(['success' => true]);
+        Flight::json(['success' => true]);
+    }
 });
 
 /**

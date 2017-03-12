@@ -1,6 +1,6 @@
 <h1 class="page-title">Категории</h1>
 <form class="category-list container card">
-    <?php foreach ($categories as $category) : ?>
+    <?php foreach ($categoriesList as $category) : ?>
     <div class="category-list__item" data-category-id="<?=$category['id']?>">
         <span class="category-list__item__name"><?=$category['name']?></span>
         <button class="category-list__item__remove-button"><img src="/images/garbage.svg"></button>
@@ -23,8 +23,13 @@
         $.ajax('/+/categories/' + $item.data('category-id'), {
             type: 'delete',
             dataType: 'json',
-            complete: function(){
-                $item.remove();
+            complete: function(response){
+                if(response.responseJSON.success) {
+                    $item.remove();
+                } else {
+                    alert('Нельзя удалять категорию, в которой есть места. Их сначала надо перенеси в другую категорию.')
+                }
+
             }
         });
     });
