@@ -41,6 +41,7 @@
                 <?php endforeach;?>
 
                 <?php if ($admin) : ?>
+                <li><a href="/+/categories" class="sidebar__navigation__button">изменить категории</a></li>
                 <li><a href="/+/" class="sidebar__navigation__button">добавить место</a></li>
                 <?php endif; ?>
             </ul>

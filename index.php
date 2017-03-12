@@ -22,11 +22,12 @@ Flight::route('*', function () use ($config) {
 
     $sth = Flight::db()->prepare("
         SELECT *,
-        (select count(*)
-        from `places`
-        where `places`.`category` = `categories`.`id`
+        (
+            select count(*)
+            from `places`
+            where `places`.`category` = `categories`.`id`
         ) as 'count'
-        FROM `categories`
+        FROM `categories` order by `name` asc
     ");
     $sth->execute();
     $categories = $sth->fetchAll();
@@ -242,6 +243,39 @@ Flight::route('POST /\+(/@id:[0-9]+)', function ($placeId) {
 
     // Open place page
     Flight::redirect('/'.$_POST['alias']);
+});
+
+/**
+ * List of all categories
+ */
+Flight::route('GET /\+/categories', function () {
+    $sth = Flight::db()->prepare("SELECT * from `categories` order by `name` asc");
+    $sth->execute();
+    Flight::render('edit-categories', ['categories' => $sth->fetchAll()], 'content');
+    Flight::render('layout', ['title' => 'Правка категорий']);
+});
+
+/**
+ * Add category
+ */
+Flight::route('POST /\+/categories', function () {
+   $sth = Flight::db()->prepare("INSERT INTO `categories` (`name`, `alias`) VALUES (:name, :alias)");
+    $sth->bindValue(':name', htmlspecialchars($_POST['name']));
+    $sth->bindValue(':alias', $_POST['alias']);
+    $sth->execute();
+
+    Flight::redirect('/+/categories');
+});
+
+/**
+ * Delete category
+ */
+Flight::route('DELETE /\+/categories/@id:[0-9]+', function ($id) {
+   $sth = Flight::db()->prepare("delete from `categories` where `id`=:id");
+    $sth->bindValue(':id', $id);
+    $sth->execute();
+
+    Flight::json(['success' => true]);
 });
 
 /**
