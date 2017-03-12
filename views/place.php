@@ -1,4 +1,4 @@
-<h1 class="place-title"><?=$place['title']?></h1>
+<h1 class="page-title"><?=$place['title']?></h1>
 <?php if ($admin) : ?>
 	<p style="text-align:center"><a href="/+/<?=$place['id']?>">изменить</a></p>
 <?php endif; ?>

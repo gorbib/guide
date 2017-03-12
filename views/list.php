@@ -1,4 +1,4 @@
-<h1 class="category-title"><?=$category['name']?></h1>
+<h1 class="page-title"><?=$category['name']?></h1>
 <div class="places-in-category">
 	<?php foreach ($places as $place) : ?>
 	<a class="places-in-category__place" href="/<?=$place['alias']?>" style="background-image: url('<?=$place['image']?>')">
