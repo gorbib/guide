@@ -63,7 +63,6 @@ img {
     letter-spacing: 1px;
 	background: #3c3c3c;
     color: #999;
-    flex-basis: 300px;
     min-width: 300px;
     z-index: 100;
     padding: 20px;

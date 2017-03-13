@@ -36,7 +36,6 @@
 </head>
 <body>
     <aside class="sidebar">
-        <div style="position: sticky;top:20px">
             <img src="/images/mountain.svg" class="sidebar__mountain" alt="">
             <ul class="sidebar__navigation">
 
@@ -56,7 +55,6 @@
                 <li><a class="ig" target="_blank" href="https://www.instagram.com/gorbib/"></a></li>
                 <li><a class="yt" target="_blank" href="https://www.youtube.com/user/kchlib"></a></li>
             </ul>
-        </div>
     </aside>
 
 
