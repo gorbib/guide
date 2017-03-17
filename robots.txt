@@ -1,4 +1,4 @@
 User-agent: *
 Disallow: /+
 Disallow: /json
-Host: xn--80aaafs0abz2a9d.xn--p1ai
+Host: https://xn--80aaafs0abz2a9d.xn--p1ai
