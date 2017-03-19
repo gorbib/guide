@@ -335,9 +335,11 @@ Flight::route('POST /\+/upload', function () use ($config) {
 // 404
 Flight::map('notFound', function () {
     Flight::render('404', null, 'content');
-    Flight::halt(404, Flight::view()->fetch('layout', [
+    Flight::render('layout', [
         'title' => 'Нет такой страницы'
-    ]));
+    ]);
+
+    Flight::stop(404);
 });
 
 
