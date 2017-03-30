@@ -2,3 +2,4 @@ User-agent: *
 Disallow: /+
 Disallow: /json
 Host: https://xn--80aaafs0abz2a9d.xn--p1ai
+Sitemap: https://xn--80aaafs0abz2a9d.xn--p1ai/sitemap.xml
