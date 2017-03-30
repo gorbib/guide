@@ -441,6 +441,7 @@ img {
 .footer__something {
 	padding: 30px;
 	flex-basis: 300px;
+	flex-shrink: 0;
 	background-color: #ebebeb;
 	color: #333;
 }
