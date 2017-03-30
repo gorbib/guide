@@ -73,6 +73,17 @@ Flight::route('/json', function () {
     Flight::json($places);
 });
 
+// Sitemap.xml
+Flight::route('/sitemap.xml', function () {
+    header("Content-Type: application/xml");
+
+    $sth = Flight::db()->prepare("SELECT `alias` FROM `places` UNION SELECT `alias` FROM `categories`");
+
+    $sth->execute();
+
+    Flight::render('sitemap', ['aliases' => $sth->fetchAll()]);
+});
+
 
 
 // Place or category page
