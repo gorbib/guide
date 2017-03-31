@@ -99,12 +99,21 @@ Flight::route('/@alias:[A-z0-9-]+', function ($alias) {
         $sth = Flight::db()->prepare("SELECT * from `images` where `place` = :place order by `order` asc");
         $sth->bindValue(':place', $place['id']);
         $sth->execute();
-        $place['images'] = $sth->fetchAll();
+        $images = $sth->fetchAll();
 
-        Flight::render('place', ['place' => $place], 'content');
+        $sth = Flight::db()->prepare("SELECT * from `categories` where `id` = :category");
+        $sth->bindValue(':category', $place['category']);
+        $sth->execute();
+        $category = $sth->fetch();
+
+        Flight::render('place', [
+            'place' => $place,
+            'images' => $images,
+            'category' => $category
+        ], 'content');
         Flight::render('layout', [
             'title' => $place['title'].' в Качканаре',
-            'image'=> $place['images'][0]['url'],
+            'image'=> $images[0]['url'],
             'description' => $place['description']
         ]);
     } else {

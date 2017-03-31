@@ -3,9 +3,11 @@
 	<p style="text-align:center"><a href="/+/<?=$place['id']?>">изменить</a></p>
 <?php endif; ?>
 <div class="fotorama" data-allowfullscreen="native" data-ratio="16/9" data-width="100%" data-fit="cover">
-	<?php foreach ($place['images'] as $image) : ?>
+	<?php foreach ($images as $image) : ?>
 		<img src="<?=$image['url']?>" data-caption="<?=$image['caption']?>" alt="<?=$place['title']?> в Качканаре. <?=$image['caption']?>">
 	<?php endforeach;?>
 </div>
 
 <?=$place['text']?>
+
+<div class="place__category-meta">Категория: <a href="/<?=$category['alias']?>"><?=$category['name']?></a></div>

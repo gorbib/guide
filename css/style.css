@@ -319,6 +319,16 @@ img {
 	margin: 10px 10px 0 0;
 }
 
+.place__category-meta {
+	display: block;
+	border-top: 1px solid #eee;
+	margin-top: 20px;
+	margin: 2em auto;
+	padding: 20px 0;
+    max-width: 800px;
+    font-size: 18px;
+}
+
 @keyframes loading {
   from {
     background-color: #ddd;
