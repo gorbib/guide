@@ -47,7 +47,7 @@ Flight::route('*', function () use ($config) {
 Flight::route('/', function () {
     Flight::render('index', null, 'content');
     Flight::render('layout', [
-        'title' => 'Путеводитель достопримечательностей Качканара'
+        'title' => 'Путеводитель по Качканару'
     ]);
 });
 
