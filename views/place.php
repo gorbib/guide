@@ -10,4 +10,14 @@
 
 <?=$place['text']?>
 
-<div class="place__category-meta">Категория: <a href="/<?=$category['alias']?>"><?=$category['name']?></a></div>
+<div class="place__category-meta">
+    <div class="place__category-meta__left">
+        Категория: <a href="/<?=$category['alias']?>"><?=$category['name']?></a>
+    </div>
+    <div class="likely likely-dark place__category-meta__right" data-via="gorbib">
+        <div class="vkontakte">Расскажите в ВК</div>
+        <div class="facebook">Фейсбуке</div>
+        <div class="twitter">Твиттере</div>
+        <div class="odnoklassniki">Ставьте класс</div>
+    </div>
+</div>

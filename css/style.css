@@ -329,6 +329,13 @@ img {
     font-size: 18px;
 }
 
+.place__category-meta__left {
+	float: left;
+}
+.place__category-meta__right {
+	float: right;
+}
+
 @keyframes loading {
   from {
     background-color: #ddd;

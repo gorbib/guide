@@ -68,12 +68,6 @@
             <div class="footer__main">
                 <p class="copyright">Собрали фотографии и написали текст библиотекари <a href="http://gorbib.org.ru" target="_blank">качканарской библиотеки им. Селянина</a> к&nbsp;60-летию города</p>
                 <div id="openstat4031444" class=" footer__stat-block"></div>
-                <div class="likely likely-light" data-via="gorbib">
-                    <div class="vkontakte">Расскажите в ВК</div>
-                    <div class="facebook">Фейсбуке</div>
-                    <div class="twitter">Твиттере</div>
-                    <div class="odnoklassniki">Ставьте класс</div>
-                </div>
             </div>
         </footer>
     </main>
