@@ -416,17 +416,29 @@ img {
 	opacity: 1;
 }
 
-.category-list__new-form {
-	display: flex;
+.category-edit-form {
 	background: #ededed;
+	border-radius: 3px;
 }
 
-.category-list__new-form__input {
+.category-edit-form__main {
+	display: flex;
+}
+
+.category-edit-form__field {
 	padding: 10px;
+	border-radius: 3px;
+	border: none;
 	font-size: 1.2em;
 	flex:1;
 	margin: 10px;
 }
+
+.category-edit-form__submit-button {
+	align-self: flex-end;
+	margin: 10px;
+}
+
 .full-page-message {
 	display: flex;
 	align-items: center;
