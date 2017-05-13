@@ -2,13 +2,12 @@
 <html lang="ru">
 <head>
     <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title><?=$title?></title>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="<?=$description?>">
-    <meta name="keywords" content="интересные места Качканара, достопримечательности Качканара, Качканар">
-
     <meta property="og:title" content="<?=$title?>">
     <meta property="og:type" content="site">
     <meta property="og:url" content="//<?=$_SERVER[HTTP_HOST] . $_SERVER[REQUEST_URI]?>">
@@ -36,33 +35,31 @@
 </head>
 <body>
     <aside class="sidebar">
-            <img src="/images/mountain.svg" class="sidebar__mountain" alt="">
-            <ul class="sidebar__navigation">
+        <img src="/images/mountain.svg" class="sidebar__mountain" alt="">
+        <ul class="sidebar__navigation">
 
-                <a class="logo" href="/">Качканар</a>
-                <?php foreach ($categories as $category) : ?>
-                <li><a href="/<?=$category['alias']?>"><?=$category['name']?><sup><?=$category['count']?></sup></a></li>
-                <?php endforeach;?>
+            <a class="logo" href="/">Качканар</a>
+            <?php foreach ($categories as $category) : ?>
+            <li><a href="/<?=$category['alias']?>"><?=$category['name']?><sup><?=$category['count']?></sup></a></li>
+            <?php endforeach;?>
 
-                <?php if ($admin) : ?>
-                <li><a href="/+/categories" class="sidebar__navigation__button">изменить категории</a></li>
-                <li><a href="/+/" class="sidebar__navigation__button">добавить место</a></li>
-                <?php endif; ?>
-            </ul>
-            <ul class="sidebar__social">
-                <li><a class="fb" target="_blank" href="https://www.facebook.com/gorbib"></a></li>
-                <li><a class="vk" target="_blank" href="https://vk.com/gorbib"></a></li>
-                <li><a class="ig" target="_blank" href="https://www.instagram.com/gorbib/"></a></li>
-                <li><a class="yt" target="_blank" href="https://www.youtube.com/user/kchlib"></a></li>
-            </ul>
+            <?php if ($admin) : ?>
+            <li><a href="/+/categories" class="sidebar__navigation__button">изменить категории</a></li>
+            <li><a href="/+/" class="sidebar__navigation__button">добавить место</a></li>
+            <?php endif; ?>
+        </ul>
+        <ul class="sidebar__social">
+            <li><a class="fb" target="_blank" href="https://www.facebook.com/gorbib"></a></li>
+            <li><a class="vk" target="_blank" href="https://vk.com/gorbib"></a></li>
+            <li><a class="ig" target="_blank" href="https://www.instagram.com/gorbib/"></a></li>
+            <li><a class="yt" target="_blank" href="https://www.youtube.com/user/kchlib"></a></li>
+        </ul>
     </aside>
-
 
     <main class="main">
         <article class="content">
             <?php echo $content; ?>
         </article>
-
 
         <footer class="footer">
             <div class="footer__something">
