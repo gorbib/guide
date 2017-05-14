@@ -67,7 +67,8 @@
             </div>
             <div class="footer__main">
                 <p class="copyright">Собрали фотографии и написали текст библиотекари <a href="http://gorbib.org.ru" target="_blank">качканарской библиотеки им. Селянина</a> к&nbsp;60-летию города</p>
-                <div id="openstat4031444" class=" footer__stat-block"></div>
+                <p class="copyright"><a href="mailto:gorbib@yandex.ru?subject=Путеводитель">Напишите нам</a>, если есть вопросы или предложения.</p>
+                <div id="openstat4031444" class="footer__stat-block" title="Сколько человек было у нас на сайте в прошлом месяце; Сколько было вчера; И сколько прямо сейчас"></div>
             </div>
         </footer>
     </main>
@@ -89,9 +90,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ilyabirman-likely/2.2.1/likely.js"></script>
 
 
+
     <!--Openstat-->
-    <script>
-    var openstat = { counter: 4031444, image: 90, color: "828282", next: openstat };
+    <script type="text/javascript">
+    var openstat = { counter: 4031444, image: 5084, color: "828282", next: openstat };
     (function(d, t, p) {
     var j = d.createElement(t); j.async = true; j.type = "text/javascript";
     j.src = ("https:" == p ? "https:" : "http:") + "//openstat.net/cnt.js";
