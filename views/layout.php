@@ -67,7 +67,7 @@
                 <div id="vk_groups" style="height: 400px;"></div>
             </div>
             <div class="footer__main">
-                <p class="copyright">Собрали фотографии и написали текст библиотекари <a href="http://gorbib.org.ru" target="_blank">качканарской библиотеки им. Селянина</a> к&nbsp;60-летию города.
+                <p class="copyright">Информация собрана сотрудниками <a href="http://gorbib.org.ru" target="_blank">качканарской библиотеки им. Селянина</a> к&nbsp;60-летию города.
                 <a href="mailto:gorbib@yandex.ru?subject=Путеводитель">Напишите нам</a>, если есть вопросы или предложения.</p>
                 <div id="openstat4031444" class="footer__stat-block" title="Сколько человек было у нас на сайте в прошлом месяце; Сколько было вчера; И сколько прямо сейчас"></div>
                 <div>Расскажите о путеводителе</div>
