@@ -73,9 +73,9 @@
                 <div>Расскажите о путеводителе</div>
                 <div class="likely likely-light" data-via="gorbib" data-url="https://вкачканаре.рф" data-title="Путеводитель по Качканару">
                     <div class="vkontakte">ВКонтакте</div>
-                    <div class="facebook">фейсбуке</div>
-                    <div class="twitter">твиттере</div> и
-                    <div class="odnoklassniki">одноклассниках</div>
+                    <div class="facebook">фейсбук</div>
+                    <div class="twitter">твиттер</div>
+                    <div class="odnoklassniki">одноклассники</div>
                 </div>
             </div>
         </footer>
