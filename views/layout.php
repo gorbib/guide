@@ -25,13 +25,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif+Caption&amp;subset=cyrillic">
-    <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ilyabirman-likely/2.2.1/likely.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.min.css">
     <?php if ($admin) : ?>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/medium-editor/5.22.2/css/medium-editor.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/medium-editor/5.22.2/css/themes/flat.min.css">
     <?php endif; ?>
+
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
     <aside class="sidebar">
@@ -66,9 +67,16 @@
                 <div id="vk_groups" style="height: 400px;"></div>
             </div>
             <div class="footer__main">
-                <p class="copyright">Собрали фотографии и написали текст библиотекари <a href="http://gorbib.org.ru" target="_blank">качканарской библиотеки им. Селянина</a> к&nbsp;60-летию города</p>
-                <p class="copyright"><a href="mailto:gorbib@yandex.ru?subject=Путеводитель">Напишите нам</a>, если есть вопросы или предложения.</p>
+                <p class="copyright">Собрали фотографии и написали текст библиотекари <a href="http://gorbib.org.ru" target="_blank">качканарской библиотеки им. Селянина</a> к&nbsp;60-летию города.
+                <a href="mailto:gorbib@yandex.ru?subject=Путеводитель">Напишите нам</a>, если есть вопросы или предложения.</p>
                 <div id="openstat4031444" class="footer__stat-block" title="Сколько человек было у нас на сайте в прошлом месяце; Сколько было вчера; И сколько прямо сейчас"></div>
+                <div>Расскажите о путеводителе</div>
+                <div class="likely likely-light" data-via="gorbib" data-url="https://вкачканаре.рф" data-title="Путеводитель по Качканару">
+                    <div class="vkontakte">ВКонтакте</div>
+                    <div class="facebook">фейсбуке</div>
+                    <div class="twitter">твиттере</div> и
+                    <div class="odnoklassniki">одноклассниках</div>
+                </div>
             </div>
         </footer>
     </main>
