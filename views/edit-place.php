@@ -36,7 +36,7 @@
 
     <p><input type="text" name="description" class="edit-place-form__field" placeholder="Краткое описание для соцсетей и поисковиков" value="<?=$place['description']?>" maxlength="150"></p>
 
-    <textarea name="text" class="edit-place-form__field edit-place-form__field_text" data-placeholder="Сюда нужно написать текст об этом месте"><?=$place['text']?></textarea>
+    <textarea name="text" class="edit-place-form__content" data-placeholder="Сюда нужно написать текст об этом месте"><?=$place['text']?></textarea>
 
     <div style="text-align: right;">
         <button class="btn"><?php if (isset($place['id'])) : ?>Обновить<?php else: ?>Добавить<?php endif;?></button>

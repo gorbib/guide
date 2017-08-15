@@ -299,6 +299,21 @@ img {
 	font-size: 16px;
 }
 
+.edit-place-form__content {
+	font-size: 20px;
+    width: 100%;
+	margin: 0 auto;
+	max-width: 800px;
+	padding: 10px;
+	border: 1px solid #ccc;
+	min-height: 100px;
+}
+
+.medium-editor-placeholder:after {
+	color: #333;
+	font-style: normal;
+}
+
 .image-preview {
 	float: left;
 	position: relative;

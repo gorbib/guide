@@ -1,4 +1,4 @@
-var editor = new MediumEditor('.edit-place-form__field_text', {
+var editor = new MediumEditor('.edit-place-form__content', {
     paste: {
         forcePlainText: false,
         cleanPastedHTML: true
