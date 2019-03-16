@@ -98,18 +98,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ilyabirman-likely/2.2.1/likely.js"></script>
 
 
-
-    <!--Openstat-->
-    <script type="text/javascript">
-    var openstat = { counter: 4031444, image: 5084, color: "828282", next: openstat };
-    (function(d, t, p) {
-    var j = d.createElement(t); j.async = true; j.type = "text/javascript";
-    j.src = ("https:" == p ? "https:" : "http:") + "//openstat.net/cnt.js";
-    var s = d.getElementsByTagName(t)[0]; s.parentNode.insertBefore(j, s);
-    })(document, "script", document.location.protocol);
-    </script>
-    <!--/Openstat-->
-
     <!-- For old browsers -->
     <script src="https://yastatic.net/browser-updater/v1/script.js"></script>
     <script>
