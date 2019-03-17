@@ -58,8 +58,8 @@ Flight::route('/', function () {
 Flight::route('/json', function () {
     $sth = Flight::db()->prepare("SELECT
         id,
-        X(`coordinates`) as 'long',
-        Y(`coordinates`) as 'lat',
+        ST_X( coordinates ) as 'long',
+        ST_Y( coordinates ) as 'lat',
         category,
         alias,
         title,
@@ -165,8 +165,8 @@ Flight::route('/\+/*', function () use ($config) {
 Flight::route('GET /\+(/@id:[0-9]+)', function ($id) {
     if (isset($id)) {
         $sth = Flight::db()->prepare("SELECT
-            id, X(`coordinates`) as 'long',
-            Y(`coordinates`) as 'lat',
+            id, ST_X(`coordinates`) as 'long',
+            ST_Y(`coordinates`) as 'lat',
             category,
             alias,
             title,
