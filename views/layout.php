@@ -37,18 +37,26 @@
 <body>
     <aside class="sidebar">
         <img src="/images/mountain.svg" class="sidebar__mountain" alt="">
-        <ul class="sidebar__navigation">
+        <div class="sidebar__body">
 
-            <a class="logo" href="/">Качканар</a>
+            <header class="header">
+                <label for="navigation-toggler" class="navigation-toggle"></label>
+                <a class="logo" href="/">Качканар</a>
+            </header>
+
+            <input type="checkbox" id="navigation-toggler" hidden>
+
+            <ul class="navigation">
             <?php foreach ($categories as $category) : ?>
             <li><a href="/<?=$category['alias']?>"><?=$category['name']?><sup><?=$category['count']?></sup></a></li>
             <?php endforeach;?>
 
             <?php if ($admin) : ?>
-            <li><a href="/+/categories" class="sidebar__navigation__button">изменить категории</a></li>
-            <li><a href="/+/" class="sidebar__navigation__button">добавить место</a></li>
+            <li><a href="/+/categories" class="navigation__button">изменить категории</a></li>
+            <li><a href="/+/" class="navigation__button">добавить место</a></li>
             <?php endif; ?>
-        </ul>
+            </ul>
+        </div>
         <ul class="sidebar__social">
             <li><a class="fb" target="_blank" href="https://www.facebook.com/gorbib"></a></li>
             <li><a class="vk" target="_blank" href="https://vk.com/gorbib"></a></li>

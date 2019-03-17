@@ -75,12 +75,43 @@ img {
 	z-index:1;
 	align-self: center;
 }
-.sidebar__navigation {
-	padding: 50px 0;
+.sidebar__body {
+	padding: 50px 20px;
 	margin: 0;
 	border: 1px solid #868686;
 }
-.sidebar__navigation li a {
+
+.header {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.logo {
+	color: #fff;
+	font-family: 'PT Serif Caption', serif;
+	font-size: 35px;
+	text-decoration: none;
+}
+
+.navigation-toggle {
+	cursor: pointer;
+	display: none;
+	width: 40px;
+	height: 40px;
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath fill='%23fff' d='M491.3 235.3H20.7a20.7 20.7 0 1 0 0 41.4h470.6a20.7 20.7 0 1 0 0-41.4zM491.3 78.4H20.7a20.7 20.7 0 0 0 0 41.4h470.6a20.7 20.7 0 1 0 0-41.4zM491.3 392.2H20.7a20.7 20.7 0 1 0 0 41.4h470.6a20.7 20.7 0 1 0 0-41.4z'/%3E%3C/svg%3E");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 30px;
+	margin-right: 15px;
+	justify-self: flex-start;
+}
+
+.navigation {
+	margin: 50px 0 0;
+	padding: 0;
+}
+.navigation li a {
 	color: #fff;
 	display: block;
 	font-size: 15px;
@@ -90,25 +121,24 @@ img {
 	transition: color 0.3s linear;
 	position: relative;
 }
-.sidebar__navigation li {
+.navigation li {
 	margin: 5px 0 30px;
 	list-style-type: none;
 }
-.sidebar__navigation li:last-child {
+.navigation li:last-child {
 	margin-bottom: 0;
 }
-.sidebar__navigation li a:hover {
+.navigation li a:hover {
 	color: #ccc;
 }
 
-.sidebar__navigation__button {
+.navigation__button {
     border: 1px solid;
-    margin: 20px;
     padding: 10px;
     border-radius: 3px;
 }
 
-.sidebar__navigation li sup {
+.navigation li sup {
     color: #666;
     font-size: 14px;
     margin: 5px;
@@ -156,15 +186,6 @@ img {
 }
 .sidebar__social .yt {
 	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'%3E%3Cpath d='M180.3 53.4c-2-7.7-8-13.7-15.5-15.7C151 34 96 34 96 34s-55 0-68.8 3.7c-7.5 2-13.5 8-15.5 15.7C8 67.2 8 96 8 96s0 28.8 3.7 42.6c2 7.7 8 13.7 15.5 15.7C41 158 96 158 96 158s55 0 68.8-3.7c7.5-2 13.5-8 15.5-15.7C184 124.8 184 96 184 96s0-28.8-3.7-42.6zM78 122.2V69.8L124 96l-46 26.2z' fill='%23fff'/%3E%3C/svg%3E");
-}
-
-.logo {
-	color: #fff;
-	display: inline-block;
-	margin-bottom: 50px;
-	font-family: 'PT Serif Caption', serif;
-	font-size: 35px;
-	text-decoration: none;
 }
 
 
@@ -538,8 +559,16 @@ img {
 	.footer {
 		flex-direction: column;
 	}
-	.places-in-category {
-		flex-wrap: wrap;
-		flex-direction: column;
+
+	.navigation {
+		display: none;
+	}
+
+	#navigation-toggler:checked ~ .navigation {
+		display: block;
+	}
+
+	.navigation-toggle {
+		display: block;
 	}
 }
