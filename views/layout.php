@@ -10,7 +10,7 @@
     <meta name="description" content="<?=$description?>">
     <meta property="og:title" content="<?=$title?>">
     <meta property="og:type" content="site">
-    <meta property="og:url" content="//<?=$_SERVER[HTTP_HOST] . $_SERVER[REQUEST_URI]?>">
+    <meta property="og:url" content="//<?=$_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']?>">
     <meta property="og:image" content="<?=($image ? $image : '/images/og-index.jpg')?>">
     <meta property="og:site_name" content="Путеводитель по Качканару">
     <meta property="og:description" content="<?=$description?>">
