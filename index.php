@@ -90,7 +90,12 @@ Flight::route('/sitemap.xml', function () {
 
 // Place or category page
 Flight::route('/@alias:[A-z0-9-]+', function ($alias) {
-    $sth = Flight::db()->prepare("SELECT * from `places` where `alias` = :alias");
+    $sth = Flight::db()->prepare("
+        SELECT places.*,
+            ST_X(coordinates) as 'long',
+            ST_Y(coordinates) as 'lat'
+        from `places` where `alias` = :alias
+    ");
     $sth->bindValue(':alias', $alias);
 
     $sth->execute();
@@ -108,10 +113,26 @@ Flight::route('/@alias:[A-z0-9-]+', function ($alias) {
         $sth->execute();
         $category = $sth->fetch();
 
+        $sth = Flight::db()->prepare("
+            SELECT places.*,
+            ST_DISTANCE_SPHERE(places.coordinates, ST_GEOMFROMTEXT(:point)) as distance,
+            images.url AS `image`
+            FROM `places`
+            LEFT JOIN images ON images.place = places.id
+            WHERE places.id != :place_id
+            ORDER BY distance ASC
+            LIMIT 2
+        ");
+        $sth->bindValue(':point', 'point(' . $place['long'] . ' ' . $place['lat'] . ')');
+        $sth->bindValue(':place_id', $place['id']);
+        $sth->execute();
+        $nearbyPlaces = $sth->fetchAll();
+
         Flight::render('place', [
             'place' => $place,
             'images' => $images,
-            'category' => $category
+            'category' => $category,
+            'nearbyPlaces' => $nearbyPlaces
         ], 'content');
         Flight::render('layout', [
             'title' => $place['title'].' в Качканаре',

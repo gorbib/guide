@@ -21,3 +21,15 @@
         <div class="odnoklassniki">ставьте класс</div>
     </div>
 </div>
+
+<div class="place-location">
+    <div class="place-location__map" data-lat="<?=$place['lat']?>" data-long="<?=$place['long']?>"></div>
+    <div class="place-location__nearby-places-title">Места поблизости</div>
+    <div class="place-location__nearby-places">
+    <?php foreach ($nearbyPlaces as $nearbyPlace): ?>
+    <a href="/<?=$nearbyPlace['alias']?>" class="nearby-place" style="background-image: url('<?=$nearbyPlace['image']?>')">
+        <div class="nearby-place__title"><?=$nearbyPlace['title']?></div>
+    </a>
+    <?php endforeach; ?>
+    </div>
+</div>

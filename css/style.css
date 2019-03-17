@@ -392,6 +392,53 @@ img {
 	margin-top: 10px;
 }
 
+.place-location {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-areas: "map title" "map places";
+	grid-gap: 20px;
+	margin: 2em auto;
+	padding: 10px;
+	max-width: 800px;
+}
+.place-location__map {
+	grid-area: map;
+	min-height: 150px;
+}
+.place-location__nearby-places-title {
+	grid-area: title;
+	font-weight: bold;
+	font-size: 16px;
+}
+
+.place-location__nearby-places {
+	display: grid;
+	grid-gap: 20px;
+	grid-template-rows: 150px;
+	grid-template-columns: 1fr;
+}
+
+.nearby-place {
+	background-size: cover;
+	background-position: center 35%;
+	display: flex;
+	align-items: flex-end;
+	background-color: #eee;
+	border-radius: 3px;
+	text-decoration: none;
+	height: 150px;
+}
+.nearby-place__title {
+	font-size: 14px;
+	background: #3c3c3c;
+	color: #fff;
+	margin: 10px 0 10px -5px;
+	padding: 5px 10px;
+	font-weight: bold;
+	text-decoration: none;
+	max-width: 80%;
+}
+
 @keyframes loading {
   from {
     background-color: #ddd;
@@ -570,5 +617,13 @@ img {
 
 	.navigation-toggle {
 		display: block;
+	}
+
+	.place-location {
+		grid-template-columns: 1fr;
+		grid-template-areas: "map" "title" "places";
+	}
+	.place-location__map {
+		min-height: 300px;
 	}
 }
