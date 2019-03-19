@@ -225,7 +225,7 @@ Flight::route('POST /\+(/@id:[0-9]+)', function ($placeId) {
         $sth = Flight::db()->prepare("
             UPDATE `places`
             SET
-                `coordinates` = GeomFromText(:coordinates),
+                `coordinates` = ST_GEOMFROMTEXT(:coordinates),
                 `alias` = :alias,
                 `title` = :title,
                 `description` = :description,
@@ -239,7 +239,7 @@ Flight::route('POST /\+(/@id:[0-9]+)', function ($placeId) {
         // Else create a new place
         $sth = Flight::db()->prepare("
             INSERT INTO `places` (`coordinates`, `alias`, `title`, `description`, `text`, `category`)
-            VALUES (GeomFromText(:coordinates), :alias, :title, :description, :text, :category)
+            VALUES (ST_GEOMFROMTEXT(:coordinates), :alias, :title, :description, :text, :category)
         ");
     }
 
