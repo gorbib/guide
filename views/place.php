@@ -2,7 +2,7 @@
 <?php if ($admin) : ?>
 	<p style="text-align:center"><a href="/+/<?=$place['id']?>">изменить</a></p>
 <?php endif; ?>
-<div class="fotorama" data-allowfullscreen="native" data-ratio="16/9" data-width="100%" data-fit="cover">
+<div class="fotorama photo-gallery" data-allowfullscreen="native" data-nav="thumbs" data-ratio="16/9" data-width="100%" data-fit="contain">
 	<?php foreach ($images as $image) : ?>
 		<img src="<?=$image['url']?>" data-caption="<?=$image['caption']?>" alt="<?=$place['title']?> в Качканаре. <?=$image['caption']?>">
 	<?php endforeach;?>
