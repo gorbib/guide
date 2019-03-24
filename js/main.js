@@ -70,8 +70,9 @@ ymaps.ready(function () {
 
     let placeMap = new ymaps.Map(document.querySelector('.place-location__map'), {
         center: [long, lat],
-        zoom: 12,
-        controls: ["zoomControl", "typeSelector"]
+        zoom: 15,
+        controls: ["zoomControl", "typeSelector"],
+        type: 'yandex#hybrid'
     });
     placeMap.behaviors.disable('scrollZoom');
     let placemark = new ymaps.Placemark([long, lat], {}, {
