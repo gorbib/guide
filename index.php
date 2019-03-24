@@ -115,7 +115,7 @@ Flight::route('/@alias:[A-z0-9-]+', function ($alias) {
 
         $sth = Flight::db()->prepare("
             SELECT places.*,
-            ST_DISTANCE_SPHERE(places.coordinates, ST_GEOMFROMTEXT(:point)) as distance,
+            ST_DISTANCE(places.coordinates, ST_GEOMFROMTEXT(:point)) AS distance,
             (SELECT url FROM images WHERE place = places.id ORDER BY `order` ASC LIMIT 1) as image
             FROM `places`
             WHERE places.id != :place_id
