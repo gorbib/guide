@@ -1,5 +1,6 @@
 {
     "name": "gorbib/guide",
+    "license": "proprietary",
     "type": "project",
     "require": {
         "mikecao/flight": "^1.3",
