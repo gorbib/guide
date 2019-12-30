@@ -64,7 +64,7 @@
                     <a href="mailto:gorbib@yandex.ru?subject=Путеводитель">Напишите нам</a>, если есть вопросы или предложения.</p>
                     <div id="openstat4031444" class="footer__stat-block" title="Сколько человек было у нас на сайте в прошлом месяце; Сколько было вчера; И сколько прямо сейчас"></div>
                     <div>Расскажите о путеводителе</div>
-                    <div class="likely likely-light" data-via="gorbib" data-url="https://вкачканаре.рф" data-title="Путеводитель по Качканару">
+                    <div class="likely" data-via="gorbib" data-url="https://вкачканаре.рф" data-title="Путеводитель по Качканару">
                         <div class="vkontakte">ВКонтакте</div>
                         <div class="facebook">фейсбук</div>
                         <div class="twitter">твиттер</div>
