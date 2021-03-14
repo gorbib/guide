@@ -105,6 +105,17 @@ img {
 	text-decoration: none;
 	height: 100%;
 	margin-top: -4px;
+	white-space: nowrap;
+}
+@media (max-width: 1200px) {
+	.header__logo:before {
+		content: '';
+		display: block;
+		background: url("/images/menu.svg") no-repeat left center;
+		height: 100%;
+		width: 30px;
+		background-size: 20px;
+	}
 }
 
 .header-menu {
@@ -112,6 +123,12 @@ img {
 	flex-direction: row;
 	list-style-type: none;
 	font-size: 14px;
+}
+
+@media (max-width: 1200px) {
+	.header-menu {
+		display: none;
+	}
 }
 .header-menu__item {
 	display: inline-flex;
@@ -219,7 +236,8 @@ img {
 
 .page-title {
 	font-size: 35px;
-	margin:30px;
+	margin: 50px 0 80px;
+    text-align: center;
 }
 
 .btn {
@@ -238,7 +256,7 @@ img {
 }
 
 .index-bg {
-	background: url("/images/main-page-bg.jpg") #fff;
+    background-image: linear-gradient(#0000001f, #0000006b), url('/images/main-page-bg.jpg');
 	background-size: cover;
 	height: calc(100vh - 80px);
 	display: flex;
@@ -248,6 +266,22 @@ img {
 }
 .index-bg__text {
 	text-align: center;
+}
+.index-bg__title {
+    background: var(--brand-color);
+    color: #fff;
+    padding: 7px 13px;
+    display: inline-block;
+    font-size: 40px;
+}
+.index-bg__subtitle {
+    margin: auto;
+    max-width: 800px;
+    background: var(--brand-color);
+    color: #fff;
+    padding: 3px 14px;
+    display: inline-block;
+    font-size: 22px;
 }
 
 .map {
@@ -272,7 +306,7 @@ img {
 	background-color: #eee;
 	background-size: cover;
 	background-position: center 35%;
-	align-items: flex-end;
+    align-items: flex-start;
 	height: 300px;
 	flex-basis: 400px;
 	flex-grow: 1;
@@ -288,14 +322,14 @@ img {
 
 .places-in-category__place__description {
 	font-size: 18px;
-	background: #3c3c3c;
+	background: var(--brand-color);
 	color: #fff;
 	margin: 20px 0 20px -5px;
-	bottom: 0;
 	padding: 10px 15px;
 	font-weight: bold;
 	text-decoration: none;
 	max-width: 80%;
+    line-height: 1.6;
 }
 
 .edit-place-form__field {
@@ -406,7 +440,7 @@ img {
 	background-size: cover;
 	background-position: center 35%;
 	display: flex;
-	align-items: flex-end;
+	align-items: flex-start;
 	background-color: #eee;
 	border-radius: 3px;
 	text-decoration: none;
@@ -414,7 +448,7 @@ img {
 }
 .nearby-place__title {
 	font-size: 14px;
-	background: #3c3c3c;
+	background: var(--brand-color);
 	color: #fff;
 	margin: 10px 0 10px -5px;
 	padding: 5px 10px;

@@ -2,10 +2,23 @@
 <?php if ($admin) : ?>
 	<p style="text-align:center"><a href="/+/<?=$place['id']?>">изменить</a></p>
 <?php endif; ?>
-<div class="fotorama photo-gallery" data-allowfullscreen="native" data-nav="thumbs" data-ratio="16/9" data-width="100%" data-fit="contain">
-	<?php foreach ($images as $image) : ?>
-		<img src="<?=$image['url']?>" data-caption="<?=$image['caption']?>" alt="<?=$place['title']?> в Качканаре. <?=$image['caption']?>">
-	<?php endforeach;?>
+
+<div class="swiper-container gallery-top">
+<div class="swiper-wrapper">
+    <?php foreach ($images as $image) : ?>
+    <div class="swiper-slide" style="background-image:url('<?=$image['url']?>')"></div>
+    <?php endforeach;?>
+</div>
+<!-- Add Arrows -->
+<div class="swiper-button-next swiper-button-white"></div>
+<div class="swiper-button-prev swiper-button-white"></div>
+</div>
+<div class="swiper-container gallery-thumbs">
+    <div class="swiper-wrapper">
+        <?php foreach ($images as $image) : ?>
+            <div class="swiper-slide" style="background-image:url('<?=$image['url']?>')"></div>
+        <?php endforeach;?>
+    </div>
 </div>
 
 <?=$place['text']?>
