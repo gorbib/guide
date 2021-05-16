@@ -13,5 +13,6 @@ return array(
         'api-secret' => ''
     ),
     'admin' => false,
-    'description' => ''
+    'description' => '',
+    'pass' => 'password'
 );

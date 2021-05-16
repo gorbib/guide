@@ -39,7 +39,7 @@ Flight::route('*', function () use ($config) {
     Flight::view()->set('description', $config['description']);
 
 
-    Flight::view()->set('admin', $config['admin']);
+    Flight::view()->set('admin', $_SERVER['PHP_AUTH_PW'] === $config['pass']);
 
     return true; // pass to next route
 });
@@ -174,11 +174,13 @@ Flight::route('/@alias:[A-z0-9-]+', function ($alias) {
 
 // All admin pages
 Flight::route('/\+/*', function () use ($config) {
-    if ($config['admin']) {
+    if ($_SERVER['PHP_AUTH_PW'] === $config['pass']) {
         return true;
-    } else {
-        Flight::redirect('/');
     }
+
+    header('WWW-Authenticate: Basic');
+    header('HTTP/1.0 401 Unauthorized');
+    die ('Not authorized');
 });
 
 // Edit form
